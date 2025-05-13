@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari - Ride Sharing Platform</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeZn1Uf-bGIhTG1Zv4ZL1yHPSZWjuW_bk&libraries=places,directions,geocoder"></script>
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, sans-serif; }
+    .hero-bg { background: linear-gradient(to bottom right, #F0FFF4, #F7FAF8); }
+    .pseudo-image { background: linear-gradient(to right, #2D6A4F, #A9CBA4); }
+    #map-rider, #map-driver { height: 24rem; border: 1px solid #E5E7EB; }
+    @media (min-width: 768px) { #map-rider, #map-driver { height: calc(100vh - 4rem); } }
+    /* Ensure Google Maps info windows are visible and styled */
+    .gm-style-iw {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      max-width: 200px;
+      overflow: hidden;
+    }
+
+    .gm-style-iw-d {
+      overflow: auto !important;
+      padding: 0 !important;
+    }
+
+    .gm-style-iw > div {
+      max-width: 100% !important;
+    }
+
+    .gm-style-iw .gm-ui-hover-effect {
+      display: none !important; /* Hide default close button if custom styling is needed */
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
