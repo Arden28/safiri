@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Ride selection panel for choosing trip type (Safari Cab or Safari Boda)
+// Ride selection panel for choosing trip type (Safiri Cab or Safiri Boda)
 export default function RideSelectionPanel({ onSelect, onClose, distance }) {
   // State for selected ride type
   const [selectedRide, setSelectedRide] = useState('car');
@@ -10,7 +10,7 @@ export default function RideSelectionPanel({ onSelect, onClose, distance }) {
   const rideOptions = [
     {
       type: 'car',
-      name: 'Safari Cab',
+      name: 'Safiri Cab',
       description: 'Comfortable car for up to 4 passengers',
       icon: (
         <svg className="w-8 h-8 text-[#2D6A4F]" fill="currentColor" viewBox="0 0 24 24">
@@ -22,7 +22,7 @@ export default function RideSelectionPanel({ onSelect, onClose, distance }) {
     },
     {
       type: 'bike',
-      name: 'Safari Boda',
+      name: 'Safiri Boda',
       description: 'Quick motorcycle for 1 passenger',
       icon: (
         <svg className="w-8 h-8 text-[#2D6A4F]" fill="currentColor" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@ export default function RideSelectionPanel({ onSelect, onClose, distance }) {
   };
 
   // Finding selected ride name for button
-  const selectedRideName = rideOptions.find(option => option.type === selectedRide)?.name || 'Safari Cab';
+  const selectedRideName = rideOptions.find(option => option.type === selectedRide)?.name || 'Safiri Cab';
 
   // Rendering scrollable panel
   return (
