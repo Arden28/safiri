@@ -197,7 +197,7 @@ export default function Map({
           icon: {
             url: driver.vehicle === 'car'
               ? 'https://res.cloudinary.com/ds5pvn0xy/image/upload/v1747922965/ChatGPT_Image_May_22_2025_03_01_31_PM_urbdmy.png'
-              : 'https://res.cloudinary.com/ds5pvn0xy/image/upload/v1747923675/ChatGPT_Image_22_mai_2025_15_20_43_qxbwfw.png',
+              : 'https://res.cloudinary.com/ds5pvn0xy/image/upload/v1747924602/bike_iqaeck.png',
             scaledSize: new google.maps.Size(56, 56),
             anchor: new google.maps.Point(28, 28),
             rotation: 0
