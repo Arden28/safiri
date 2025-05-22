@@ -1,12 +1,76 @@
 export const mockDrivers = [
-  { id: 1, name: 'Driver 1', lat: -1.267, lng: 36.811, vehicle: 'car' }, // Westlands
-  { id: 2, name: 'Driver 2', lat: -1.280, lng: 36.820, vehicle: 'bike' }, // CBD
-  { id: 3, name: 'Driver 3', lat: -1.295, lng: 36.785, vehicle: 'car' }, // Ngong Road
-  { id: 4, name: 'Driver 4', lat: -1.261, lng: 36.802, vehicle: 'bike' }, // Sarit Centre
-  { id: 5, name: 'Driver 5', lat: -1.283, lng: 36.830, vehicle: 'car' }, // Koinange Street
-  { id: 6, name: 'Driver 6', lat: -1.275, lng: 36.815, vehicle: 'car' }, // University Way
-  { id: 7, name: 'Driver 7', lat: -1.290, lng: 36.800, vehicle: 'bike' }, // Kimathi Street
-  { id: 8, name: 'Driver 8', lat: -1.270, lng: 36.825, vehicle: 'car' } // Kenyatta Avenue
+  {
+    id: 1,
+    name: 'Driver 1',
+    lat: -1.267,
+    lng: 36.811,
+    vehicle: 'car',
+    routeStart: { lat: -1.267, lng: 36.811 }, // Westlands
+    routeEnd: { lat: -1.272, lng: 36.820 }   // Towards CBD
+  },
+  {
+    id: 2,
+    name: 'Driver 2',
+    lat: -1.280,
+    lng: 36.820,
+    vehicle: 'bike',
+    routeStart: { lat: -1.280, lng: 36.820 }, // CBD
+    routeEnd: { lat: -1.283, lng: 36.825 }    // Kenyatta Avenue
+  },
+  {
+    id: 3,
+    name: 'Driver 3',
+    lat: -1.295,
+    lng: 36.785,
+    vehicle: 'car',
+    routeStart: { lat: -1.295, lng: 36.785 }, // Ngong Road
+    routeEnd: { lat: -1.290, lng: 36.790 }    // Towards Hurlingham
+  },
+  {
+    id: 4,
+    name: 'Driver 4',
+    lat: -1.261,
+    lng: 36.802,
+    vehicle: 'bike',
+    routeStart: { lat: -1.261, lng: 36.802 }, // Sarit Centre
+    routeEnd: { lat: -1.265, lng: 36.805 }    // Towards Westlands
+  },
+  {
+    id: 5,
+    name: 'Driver 5',
+    lat: -1.283,
+    lng: 36.830,
+    vehicle: 'car',
+    routeStart: { lat: -1.283, lng: 36.830 }, // Koinange Street
+    routeEnd: { lat: -1.280, lng: 36.827 }    // Towards CBD
+  },
+  {
+    id: 6,
+    name: 'Driver 6',
+    lat: -1.275,
+    lng: 36.815,
+    vehicle: 'car',
+    routeStart: { lat: -1.275, lng: 36.815 }, // University Way
+    routeEnd: { lat: -1.278, lng: 36.818 }    // Towards CBD
+  },
+  {
+    id: 7,
+    name: 'Driver 7',
+    lat: -1.290,
+    lng: 36.800,
+    vehicle: 'bike',
+    routeStart: { lat: -1.290, lng: 36.800 }, // Kimathi Street
+    routeEnd: { lat: -1.287, lng: 36.805 }    // Towards Moi Avenue
+  },
+  {
+    id: 8,
+    name: 'Driver 8',
+    lat: -1.270,
+    lng: 36.825,
+    vehicle: 'car',
+    routeStart: { lat: -1.270, lng: 36.825 }, // Kenyatta Avenue
+    routeEnd: { lat: -1.273, lng: 36.830 }    // Towards Koinange Street
+  }
 ];
 
 export const mockRiders = [
