@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 
 // Location search component with Google Places Autocomplete and clear button
 export default function LocationSearch({ onSelect, placeholder, value, onChange, onClear }) {
-  // Ref for input element
+  // Refs for input element and autocomplete instance
   const inputRef = useRef(null);
-  const autocomplete = useRef(null);
+  const autocompleteRef = useRef(null);
 
-  // Initializing Google Places Autocomplete
+  // Initialize Google Places Autocomplete
   useEffect(() => {
-    if (!window.google) return;
-    const autocompleteInstance = new google.maps.places.Autocomplete(inputRef.current, {
+    if (!window.google) {
+      console.error('Google Maps API not loaded. Please check API key and network.');
+      return;
+    }
+
+    const autocompleteInstance = new window.google.maps.places.Autocomplete(inputRef.current, {
       componentRestrictions: { country: 'ke' },
       fields: ['place_id', 'geometry', 'name']
     });
@@ -18,23 +22,38 @@ export default function LocationSearch({ onSelect, placeholder, value, onChange,
     autocompleteInstance.addListener('place_changed', () => {
       const place = autocompleteInstance.getPlace();
       if (place.geometry) {
-        onSelect({
+        const location = {
           name: place.name,
           lat: place.geometry.location.lat(),
           lng: place.geometry.location.lng()
-        });
+        };
+        console.log('Location selected in LocationSearch:', location);
+        onSelect(location);
+      } else {
+        console.warn('No geometry data for selected place:', place);
       }
     });
 
+    autocompleteRef.current = autocompleteInstance;
+
     // Cleanup on unmount
     return () => {
-      if (autocomplete.current) {
-        google.maps.event.clearInstanceListeners(autocomplete.current);
+      if (autocompleteRef.current) {
+        window.google.maps.event.clearInstanceListeners(autocompleteRef.current);
+        autocompleteRef.current = null;
       }
     };
-  }, [onSelect, onChange]);
+  }, [onSelect]);
 
-  // Rendering input with clear button
+  // Handle clear button
+  const handleClear = () => {
+    onChange('');
+    onClear();
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
+  };
+
   return (
     <div className="relative">
       <input
@@ -43,18 +62,16 @@ export default function LocationSearch({ onSelect, placeholder, value, onChange,
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full p-4 mb-4 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
+        className="w-full p-2 sm:p-3 text-sm sm:text-base bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D6A4F] placeholder-gray-400 transition-all duration-200"
       />
       {value && (
         <button
-          onClick={() => {
-            onChange('');
-            onClear();
-            inputRef.current.value = '';
-          }}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+          onClick={handleClear}
+          className="absolute text-gray-400 transition-colors transform -translate-y-1/2 right-2 top-1/2 hover:text-gray-600"
         >
-          ✕
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       )}
     </div>
