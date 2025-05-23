@@ -77,7 +77,10 @@ export default function Map({
           { featureType: 'all', stylers: [{ saturation: -20 }] },
           { featureType: 'road', elementType: 'geometry', stylers: [{ hue: '#2D6A4F' }] },
           { featureType: 'poi', stylers: [{ visibility: 'simplified' }] }
-        ]
+        ],
+        mapTypeControl: false, // Disable map type control (Satellite/Map toggle)
+        fullscreenControl: false, // Disable fullscreen control
+        streetViewControl: false // Disable Street View Pegman
       });
       directionsService.current = new google.maps.DirectionsService();
       directionsRenderer.current = new google.maps.DirectionsRenderer({
@@ -197,7 +200,7 @@ export default function Map({
           icon: {
             url: driver.vehicle === 'car'
               ? 'https://res.cloudinary.com/ds5pvn0xy/image/upload/v1747922965/ChatGPT_Image_May_22_2025_03_01_31_PM_urbdmy.png'
-              : 'https://res.cloudinary.com/ds5pvn0xy/image/upload/v1747924602/bike_iqaeck.png',
+              : 'https://res.cloudinary.com/ds5pvn0xy/image/upload/v1747923675/ChatGPT_Image_22_mai_2025_15_20_43_qxbwfw.png',
             scaledSize: new google.maps.Size(56, 56),
             anchor: new google.maps.Point(28, 28),
             rotation: 0

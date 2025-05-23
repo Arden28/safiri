@@ -80,7 +80,7 @@ export default function RiderDashboard({ user }) {
 
   // Rendering dashboard layout
   return (
-    <main className="flex flex-col md:flex-row min-h-[calc(100vh-4rem)] mt-16 relative">
+    <main className="flex flex-col md:flex-row min-h-[calc(100vh-4rem)] mt-3 relative">
       {/* Map section */}
       <div className="flex-1">
         <Map
@@ -95,8 +95,8 @@ export default function RiderDashboard({ user }) {
         />
       </div>
       {/* Controls section */}
-      <div className="w-full md:w-96 bg-white p-8 rounded-2xl shadow-md md:border-l md:border-gray-200">
-        <h2 className="text-3xl font-bold mb-6 tracking-tight">Plan Your Ride</h2>
+      <div className="w-full p-8 bg-white md:w-96 rounded-2xl">
+        <h2 className="mb-6 text-3xl font-bold tracking-tight">Plan Your Ride</h2>
         {/* Pickup input */}
         <div className="mb-4">
           <LocationSearch
@@ -121,7 +121,7 @@ export default function RiderDashboard({ user }) {
         <button
           onClick={handleSeePrices}
           disabled={!pickup || !destination}
-          className="w-full bg-green-700 text-white p-4 rounded-lg font-semibold hover:bg-green-800 hover:scale-105 transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed"
+          className="w-full p-4 font-semibold text-white transition-all duration-300 bg-green-700 rounded-lg hover:bg-green-800 hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed"
         >
           See Prices
         </button>
@@ -137,9 +137,9 @@ export default function RiderDashboard({ user }) {
         )}
         {/* Recent activity */}
         <div className="mt-6">
-          <h3 className="text-lg font-semibold mb-2">Recent Activity</h3>
+          <h3 className="mb-2 text-lg font-semibold">Recent Activity</h3>
           {user ? (
-            <p className="text-gray-500 text-sm">No recent trips.</p>
+            <p className="text-sm text-gray-500">No recent trips.</p>
           ) : (
             <Link to="/login" className="text-green-700 underline hover:text-green-800">
               Log in to see your recent activity
